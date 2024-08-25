@@ -12,7 +12,7 @@
     <None Remove="package-lock.json" />
   </ItemGroup>
 
-  <Target Name="BuildWebUI" AfterTargets="AfterBuild">
+  <Target Name="BuildWebUI" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Release'">
     <Exec Command="npm run build" />
     <ItemGroup>
       <WebUI Include="dist\**" />
