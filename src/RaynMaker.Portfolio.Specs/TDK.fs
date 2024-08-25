@@ -9,7 +9,7 @@ open RaynMaker.Portfolio
 let equalList x =
     new CollectionEquivalentConstraint(x)
 
-let at year month day = new DateTime(year, month, day)
+let at (year:int) month day = new DateTime(year, month, day)
 let isin company = company.GetHashCode() |> sprintf "US%i" |> AssetId.Isin
 let count (v:int) = v |> decimal
 let price (v:float) = (v |> decimal) * 1.0M<Currency>
