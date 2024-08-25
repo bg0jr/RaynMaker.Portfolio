@@ -3,7 +3,7 @@
   <Import Project="..\..\build\Common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IsTestProject>true</IsTestProject>
