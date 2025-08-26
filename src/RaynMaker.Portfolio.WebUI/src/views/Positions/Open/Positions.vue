@@ -41,7 +41,7 @@
   import PositionsGrid from './PositionsGrid.vue'
 
   export default {
-    name: 'Positions',
+    name: 'OpenPositions',
     data () {
       return {
         positions: [],

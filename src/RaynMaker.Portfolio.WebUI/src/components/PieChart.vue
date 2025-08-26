@@ -1,5 +1,5 @@
 <script setup>
-  import { computed, defineProps } from 'vue'
+  import { computed } from 'vue'
   import { Pie } from 'vue-chartjs'
   import { Chart, ArcElement, Tooltip, Legend } from 'chart.js'
   import * as pl from '../../../../packages/GooglePaletteJs/palette.js'
