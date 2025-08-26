@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -18,8 +18,8 @@
   <ItemGroup>
     <PackageReference Include="ExcelDataReader" Version="3.7.0" />
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.7.0" />
-    <PackageReference Include="ExcelProvider" Version="2.1.0" />
-    <PackageReference Include="FSharp.Data" Version="6.4.0" />
+    <PackageReference Include="ExcelProvider" Version="3.0.0" />
+    <PackageReference Include="FSharp.Data" Version="6.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Suave" Version="2.6.2" />
     <PackageReference Include="Plainion.Core" Version="4.0.1" />
