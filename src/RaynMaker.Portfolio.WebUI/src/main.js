@@ -9,7 +9,7 @@ const routes = [
   { path: '/Cashflow', component: () => import('./views/Cashflow/Cashflow.vue') },
   { path: '/ClosedPositions', component: () => import('./views/Positions/Closed/ClosedPositions.vue') },
   {
-    path: '/PositionDetails',
+    path: '/PositionDetails/:isin/:name',
     name: 'PositionDetails',
     component: () => import('./views/Positions/Details/PositionDetails.vue')
   }
