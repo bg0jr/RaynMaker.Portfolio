@@ -37,9 +37,9 @@
 </script>
 
 <style lang="scss">
-  @import './assets/css/site.css';
-  @import '@coreui/coreui/scss/coreui';
-  @import '../node_modules/bootstrap/scss/bootstrap';
+  @use './assets/css/site.css';
+  @use '@coreui/coreui/scss/coreui' as *;
+  @use '../node_modules/bootstrap/scss/bootstrap' as *;
   .nav-link {
     color: #007bff !important; /* Bootstrap blue */
   }
