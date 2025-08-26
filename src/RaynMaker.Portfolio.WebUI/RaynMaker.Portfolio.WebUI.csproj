@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <Target Name="BuildWebUI" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Release'">
-    <Exec Command="npm run build" />
+    <Exec Command="pnpm run build" />
     <ItemGroup>
       <WebUI Include="dist\**" />
     </ItemGroup>

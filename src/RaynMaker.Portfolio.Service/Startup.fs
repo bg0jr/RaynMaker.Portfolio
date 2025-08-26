@@ -123,10 +123,9 @@ let build errorHandler projectFile =
         choose [ 
             GET >=> log >=> setCORSHeaders >=> choose
                 [
-                    path "/" >=> redirect "/Client/index.html"
+                    path "/" >=> fileApi "Client" "index.html"
                     pathScan "/Client/%s" (fileApi "Client")
-                    pathScan "/js/%s" (fileApi "Client/js")
-                    pathScan "/css/%s" (fileApi "Client/css")
+                    pathScan "/assets/%s" (fileApi "Client/assets")
                     path "/api/positions" >=> jsonApi listOpenPositions
                     path "/api/performance" >=> jsonApi getPerformanceIndicators
                     path "/api/benchmark" >=> jsonApi getBenchmarkPerformance

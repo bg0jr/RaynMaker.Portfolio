@@ -4,7 +4,8 @@ import App from './App.vue';
 import CoreuiVue from '@coreui/vue';
 
 const routes = [
-  { path: '/Positions', alias: '/', component: () => import('./views/Positions/Open/Positions.vue') },
+  { path: '/', component: () => import('./views/Positions/Open/Positions.vue') },
+  { path: '/Positions', component: () => import('./views/Positions/Open/Positions.vue') },
   { path: '/Performance', component: () => import('./views/Performance/Performance.vue') },
   { path: '/Cashflow', component: () => import('./views/Cashflow/Cashflow.vue') },
   { path: '/ClosedPositions', component: () => import('./views/Positions/Closed/ClosedPositions.vue') },
