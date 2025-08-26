@@ -40,7 +40,7 @@
 </script>
 
 <style lang="scss">
+  @import "./assets/css/site.css";
   @import "~@coreui/coreui/scss/coreui";
   @import "../node_modules/bootstrap/scss/bootstrap";
-  @import './assets/css/site.css';
 </style>
