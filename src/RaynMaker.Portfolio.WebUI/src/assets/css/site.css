@@ -1,15 +1,14 @@
-
 th {
   cursor: pointer;
 }
 
-  th.sortedBy {
-    background-color: lightsteelblue;
-  }
+th.sortedBy {
+  background-color: lightsteelblue;
+}
 
-    th.sortedBy .arrow {
-      opacity: 1;
-    }
+th.sortedBy .arrow {
+  opacity: 1;
+}
 
 .arrow {
   display: inline-block;
@@ -20,17 +19,17 @@ th {
   opacity: 0.66;
 }
 
-  .arrow.asc {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 4px solid black;
-  }
+.arrow.asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid black;
+}
 
-  .arrow.dsc {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid black;
-  }
+.arrow.dsc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid black;
+}
 
 .win {
   color: green;
@@ -41,9 +40,11 @@ th {
 }
 
 td.loss {
-    --bs-table-color: red;
+  --bs-table-color: red;
+  --cui-table-color: red;
 }
 
 td.win {
-    --bs-table-color: green;
+  --bs-table-color: green;
+  --cui-table-color: green;
 }

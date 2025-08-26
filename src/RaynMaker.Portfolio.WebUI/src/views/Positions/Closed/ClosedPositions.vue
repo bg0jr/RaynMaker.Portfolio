@@ -36,7 +36,7 @@
 
 <script>
   import API from '@/api'
-  import ClosedPositionsGrid from './ClosedPositionsGrid'
+  import ClosedPositionsGrid from './ClosedPositionsGrid.vue'
 
   export default {
     name: 'ClosedPositions',

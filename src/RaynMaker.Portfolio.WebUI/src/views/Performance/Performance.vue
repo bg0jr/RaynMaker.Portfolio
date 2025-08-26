@@ -101,7 +101,9 @@
       this.performance = response.data
 
       response = await API.get('/benchmark')
-      this.benchmark = response.data
+      if (typeof response.data === 'object') {
+        this.benchmark = response.data
+      }
     }
   }
 </script>

@@ -37,8 +37,8 @@
 
 <script>
   import API from '@/api'
-  import PieChart from '@/components/PieChart'
-  import PositionsGrid from './PositionsGrid'
+  import PieChart from '@/components/PieChart.vue'
+  import PositionsGrid from './PositionsGrid.vue'
 
   export default {
     name: 'Positions',

@@ -1,45 +1,43 @@
-
-<script>
+<script setup>
+  import { computed, defineProps } from 'vue'
   import { Pie } from 'vue-chartjs'
+  import { Chart, ArcElement, Tooltip, Legend } from 'chart.js'
   import * as pl from '../../../../packages/GooglePaletteJs/palette.js'
 
-  export default {
-    extends: Pie,
-    name: 'pie-chart',
-    props: {
-      data: Array,
-      labels: Array
-    },
-    mounted () {
-      this.render()
-    },
-    computed: {
-      chartData () {
-        return this.data
-      }
-    },
-    watch: {
-      data () {
-        this.render()
-      }
-    },
-    methods: {
-      render () {
-        let backgrounds = []
-        if (this.chartData) {
-          backgrounds = pl.palette('tol', Math.min(this.data.length, 12)).map(function (hex) {
-            return '#' + hex
-          })
-        }
+  Chart.register(ArcElement, Tooltip, Legend)
 
-        this.renderChart({
-          labels: this.labels,
-          datasets: [{
-            data: this.chartData,
-            backgroundColor: backgrounds
-          }]
-        }, { responsive: false, maintainAspectRatio: false })
-      }
+  const props = defineProps({
+    data: Array,
+    labels: Array,
+    width: Number,
+    height: Number
+  })
+
+  const safeData = computed(() => (Array.isArray(props.data) ? props.data : []))
+
+  const backgrounds = computed(() => {
+    if (safeData.value.length > 0) {
+      return pl.palette('tol', Math.min(safeData.value.length, 12)).map((hex) => '#' + hex)
     }
+    return []
+  })
+
+  const pieData = computed(() => ({
+    labels: props.labels,
+    datasets: [
+      {
+        data: safeData.value,
+        backgroundColor: backgrounds.value
+      }
+    ]
+  }))
+
+  const pieOptions = {
+    responsive: false,
+    maintainAspectRatio: false
   }
 </script>
+
+<template>
+  <Pie :data="pieData" :options="pieOptions" :width="width" :height="height" />
+</template>
