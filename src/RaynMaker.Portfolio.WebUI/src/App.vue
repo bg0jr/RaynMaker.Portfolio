@@ -39,8 +39,7 @@
 <style lang="scss">
   @use './assets/css/site.css';
   @use '@coreui/coreui/scss/coreui' as *;
-  @use '../node_modules/bootstrap/scss/bootstrap' as *;
   .nav-link {
-    color: #007bff !important; /* Bootstrap blue */
+    color: #007bff !important;
   }
 </style>
