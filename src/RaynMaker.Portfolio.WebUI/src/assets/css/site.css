@@ -42,9 +42,11 @@ th.sortedBy .arrow {
 td.loss {
   --bs-table-color: red;
   --cui-table-color: red;
+  --cui-table-hover-color: red;
 }
 
 td.win {
   --bs-table-color: green;
   --cui-table-color: green;
+  --cui-table-hover-color: green;
 }
