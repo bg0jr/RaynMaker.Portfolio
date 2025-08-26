@@ -6,30 +6,32 @@
       </CCardHeader>
       <CCardBody>
         <table>
-          <tr>
-            <th>Isin:</th>
-            <td>{{ isin }}</td>
-          </tr>
-          <tr>
-            <th>Shares</th>
-            <td>{{ data.shares }}</td>
-          </tr>
-          <tr>
-            <th style="padding-right:20px">Buying Price / Buying Value</th>
-            <td>{{ data.buyingPrice }} {{currency}} / {{ data.buyingValue }} {{currency}}</td>
-          </tr>
-          <tr>
-            <th>Price / Value</th>
-            <td>{{ data.currentPrice }} {{currency}} / {{ data.currentValue }} {{currency}}</td>
-          </tr>
-          <tr>
-            <th>Profit</th>
-            <td>{{ data.totalProfit }} {{currency}} ({{ data.totalRoi }} %)</td>
-          </tr>
-          <tr>
-            <th>Dividends</th>
-            <td>{{ data.totalDividends}} {{currency}} ({{ data.dividendsRoi }} %)</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>Isin:</th>
+              <td>{{ isin }}</td>
+            </tr>
+            <tr>
+              <th>Shares</th>
+              <td>{{ data.shares }}</td>
+            </tr>
+            <tr>
+              <th style="padding-right: 20px">Buying Price / Buying Value</th>
+              <td>{{ data.buyingPrice }} {{ currency }} / {{ data.buyingValue }} {{ currency }}</td>
+            </tr>
+            <tr>
+              <th>Price / Value</th>
+              <td>{{ data.currentPrice }} {{ currency }} / {{ data.currentValue }} {{ currency }}</td>
+            </tr>
+            <tr>
+              <th>Profit</th>
+              <td>{{ data.totalProfit }} {{ currency }} ({{ data.totalRoi }} %)</td>
+            </tr>
+            <tr>
+              <th>Dividends</th>
+              <td>{{ data.totalDividends }} {{ currency }} ({{ data.dividendsRoi }} %)</td>
+            </tr>
+          </tbody>
         </table>
       </CCardBody>
     </CCard>
@@ -39,18 +41,26 @@
         <CCardTitle>Transactions</CCardTitle>
       </CCardHeader>
       <CCardBody>
-        <CDataTable :items="data.transactions"
-                    column-filter
-                    :responsive="false"
-                    :items-per-page="250"
-                    hover>
-          <template #price="{item}">
-            <td>{{ item.price }} {{currency}}</td>
-          </template>
-          <template #value="{item}">
-            <td>{{ item.value }} {{currency}}</td>
-          </template>
-        </CDataTable>
+        <table class="table table-bordered table-sm table-hover">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Shares</th>
+              <th>Price</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in data.transactions" :key="item.id">
+              <td>{{ item.date }}</td>
+              <td>{{ item.type }}</td>
+              <td>{{ item.shares }}</td>
+              <td>{{ item.price }} {{ currency }}</td>
+              <td>{{ item.value }} {{ currency }}</td>
+            </tr>
+          </tbody>
+        </table>
       </CCardBody>
     </CCard>
 
@@ -59,15 +69,20 @@
         <CCardTitle>Dividends</CCardTitle>
       </CCardHeader>
       <CCardBody>
-        <CDataTable :items="data.dividends"
-                    column-filter
-                    :responsive="false"
-                    :items-per-page="250"
-                    hover>
-          <template #value="{item}">
-            <td>{{ item.value }} {{currency}}</td>
-          </template>
-        </CDataTable>
+        <table class="table table-bordered table-sm table-hover">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in data.dividends" :key="item.id">
+              <td>{{ item.date }}</td>
+              <td>{{ item.value }} {{ currency }}</td>
+            </tr>
+          </tbody>
+        </table>
       </CCardBody>
     </CCard>
   </div>
@@ -79,19 +94,25 @@
   export default {
     name: 'PositionDetails',
 
-    data () {
+    data() {
       return {
         data: {}
       }
     },
 
     computed: {
-      name () { return this.$route.params.name },
-      isin () { return this.$route.params.isin },
-      currency () { return this.data.currency }
+      name() {
+        return this.$route.params.name
+      },
+      isin() {
+        return this.$route.params.isin
+      },
+      currency() {
+        return this.data.currency
+      }
     },
 
-    async created () {
+    async created() {
       const response = await API.get(`/positionDetails?isin=${this.isin}`)
       this.data = response.data
     }
