@@ -20,9 +20,7 @@
   <div class="c-body">
     <main class="c-main">
       <CContainer fluid>
-        <transition name="fade" mode="out-in">
-          <router-view :key="$route.path"></router-view>
-        </transition>
+        <router-view :key="$route.path"></router-view>
       </CContainer>
     </main>
   </div>
